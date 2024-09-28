@@ -30,3 +30,18 @@ menuLinks.forEach(link => {
         document.body.style.overflow = 'initial';
     });
 });
+
+// Seleciona todos os elementos com a classe tooltip
+const tooltips = document.querySelectorAll('.tooltip');
+
+// Função para mostrar/esconder o tooltip
+function toggleTooltip(event) {
+    const tooltip = event.target.nextElementSibling;
+    tooltip.classList.toggle('show');
+}
+
+// Adiciona o evento mouseover a cada elemento com a classe tooltip
+tooltips.forEach(tooltip => {
+    tooltip.previousElementSibling.addEventListener('mouseover', toggleTooltip);
+    tooltip.previousElementSibling.addEventListener('mouseout', toggleTooltip);
+});
